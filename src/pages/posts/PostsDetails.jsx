@@ -7,7 +7,7 @@ const PostsDetails = () => {
   const params = useParams();
   console.log(params);
 
-  const [post, setUser] = useState(null);
+  const [post, setPost] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
@@ -16,7 +16,7 @@ const PostsDetails = () => {
     fetch(`https://jsonplaceholder.typicode.com/posts/${params.id}`)
       .then((response) => response.json())
       .then((data) => {
-        setUser(data);
+        setPost(data);
         setError("");
       })
       .catch((err) => setError(err.message))

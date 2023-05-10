@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import d from './Posts.module.css';
 
 const Posts = () => {
-  const [users, setUsers] = useState([]);
+  const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
@@ -13,7 +13,7 @@ const Posts = () => {
     fetch("https://jsonplaceholder.typicode.com/posts")
       .then((response) => response.json())
       .then((data) => {
-        setUsers(data);
+        setPosts(data);
         setError("");
       })
       .catch((err) => setError(err.message))
@@ -25,10 +25,10 @@ const Posts = () => {
   }
 
   return (
-    <div className={d.container}>
-      {loading || !users.length
+      <div className={d.container}>
+      {loading || !posts.length
         ? "loading..."
-        : users.map((el) => {
+        : posts.map((el) => {
             return (
               <div key={el.id} className={d.content}>
                 <h1 className={d.nav}>{el.id} <br /> {el.title}

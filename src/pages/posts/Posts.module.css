@@ -1,5 +1,7 @@
 .container{
     background-color: rgb(193, 191, 191);
+    width: 80%;
+    margin-left: 10%;
 }
 
 .content{
